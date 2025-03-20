@@ -15,7 +15,7 @@ TEST_EMAIL= # Email to receive test emails
 
 ## To Run
 
-- run `python ./main.py` from the root directory to generate data
+- run `python ./main.py` from the root directory to generate data. Output will be in the `out_data` directory
 - All HTML templates are in the `html` directory
 - ~~run `python mailer.py` from the root directory to send emails~~ <-- Mailer not yet implemented
 
