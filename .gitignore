@@ -1,3 +1,5 @@
 .env
-out_data/*
+out_data/*.xlsx
+out_data/*.csv
 __*__
+mailer.py

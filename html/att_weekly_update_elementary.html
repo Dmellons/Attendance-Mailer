@@ -1,0 +1,303 @@
+<!DOCTYPE html> 
+ <html> 
+ <head> 
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+ <style>
+ body {
+ 	font-family: Helvetica;
+ }
+ table {
+     border-collapse: collapse;
+ 	min-width: 500px;
+ 	width: 100%;
+ }
+ 
+ #content {
+ 	float: left;
+ 	border-style: solid;
+ 	border-width: 1px;
+ }
+ 
+ th, td {
+     text-align: left;
+     padding: 8px;
+ 	border: 1px solid #5f5f5f;
+ }
+ 
+ th h1, th h2, th h3 {
+ 	margin: 0;
+ }
+ 
+ .trending_header1 {
+ 	background-color: #387abc;
+ 	color: white;
+ }
+ 
+ .trending_header2 {
+ 	background-color: #5197dd;
+ 	color: white;
+ 	width: 50%;
+ }
+ 
+ .trending_header3 {
+ 	background-color: #2A2D7C;
+ 	color: white;
+ }
+ 
+ tr {background-color: #f2f2f2}
+ 
+ th {
+     background-color: #FFD651;
+     color: black;
+ }
+ 
+ #page {
+ 	
+ }
+ 
+ #topbar {
+ 	width: 100%;
+ 	background-color: #28639f;
+ 	margin-bottom: 10px;
+ 	color: white;
+ }
+ 
+ #topbar h3 {
+ 	display: inline;
+ 	margin-left: 5px;
+ }
+ 
+ #topbar-oreg {
+ 	width: 100%;
+ 	margin-bottom: 10px;
+ }
+ 
+ .wrapper {
+ 	margin: 0 auto;
+ 	display: inline-block;
+ }
+ 
+ .wrapper img {
+ 	display: block;
+ }
+ 
+ .wrapper-ch {
+   display: inline-block;
+   vertical-align: middle;
+ }
+ 
+ .wrapper-ch p {
+ 	margin: 0;
+ }
+ 
+ .center {
+ 	text-align: center;
+ }
+ 
+ .right {
+ 	text-align: right;
+ }
+ 
+ .red {
+ 	color: red;
+ 	font-weight: bold;
+ }
+ 
+ .green {
+ 	color: green;
+ 	font-weight: bold;
+ }
+ 
+ .tricolrow {
+ 	background-color: white;
+ }
+ 
+ .tricolcontainer {
+ 	padding: 0px;
+ }
+ 
+ .tricoldiv {
+ 	width: 100%;
+ 	padding: 0px;
+ 	display: flex;
+ }
+ 
+ .tricol1 {
+ 	width: 38%;
+ 	float: left;
+ 	padding: 3px;
+ }
+ .tricol2 {
+ 	width: 38%;
+ 	float: left;
+ 	padding: 3px;
+ }
+ .tricol3 {
+ 	width: 20%;
+ 	float: left;
+ 	padding: 3px;
+ }
+ 
+ .period_cell {
+ 	width: 35px;
+ }
+ 
+ .checkedin_paws_cell {
+ 	width: 500px;
+ }
+ 
+ .bgwhite {
+ 	background-color: #fff;
+ }
+ 
+ .redbg {
+ 	background-color: #E06666;
+ }
+ 
+ .yellowbg {
+ 	background-color: #FFD651;
+ }
+ 
+ .greenbg {
+ 	background-color: #B6D7A8;
+ }
+ 
+ .subtext {
+ 	font-size: .7em;
+ }
+ 
+ .center {
+   text-align: center;
+ }
+ 
+ #attchart {
+ 	width: 70%;
+ 	margin: 0 auto;
+ }
+ 
+ #attchart .key {
+ 	width: 20%;
+ }
+ 
+ .redbar { background-color: #E06666; text-align: right; }
+ .yellowbar { background-color: #e8e295; text-align: right; }
+ .greenbar { background-color: #B6D7A8; text-align: right; }
+ 
+ #attchart .data {
+ 	width: 80%;
+ }
+ </style>
+ 
+ <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+ </head> 
+ <body> 
+ 
+ <div id="page">
+ 
+ 
+ <div id="content">
+ 	<div id="topbar">
+ 		<h3>Weekly Attendance Update for {{student.first_name}} {{student.last_name}} - {{d5_date}}</h3>
+ 		<img border="0" src="https://return.slusd.us/index.php/mailer_readstatus/read_att_stu_par_message?mgu={{MGU}}" width="1" height="1" alt="" >
+ 	</div>	
+ 	
+ 	<div>
+ 		<div class="center">
+ 		
+ 			<p>
+ 				Here is your weekly attendance update for {{student.first_name}} {{student.last_name}} based on attendance rates at your student's school as of {{d5_date}}.
+ 			</p>
+ 			
+ 	<table id='attchart'>
+ 		<tr>
+ 		  <td class="key"># of days missed this year for your student</td>
+ 		  <td class="data">
+ 			<div class="{{abs_graph_bg}}" style='width:{{stumiss_width}}%'>
+ 			  {{num_all_day_abs}}
+ 			</div>
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td class="key"># of days missed this year for the average student</td>
+ 		  <td class="data">
+ 			<div class="greenbar" style='width:{{avgmiss_width}}%'>
+ 			  {{num_days_avg_miss}}
+ 			</div>
+ 		  </td>
+ 		</tr>
+ 	</table>
+ 			
+ 			
+ 		</div>
+ 	</div>
+ 	
+ 	<br />
+ 	
+ 	<table>
+ 	<tr>
+ 		<th colspan="2" class="trending_header2"><h3>Attendance Details</h3></th>
+ 	</tr>
+ 	
+ 	<tr>
+ 	<th>Date:</th>
+ 	<th>Attendance Code</th>
+ 	</tr>
+ 	
+ 		
+ 	<tr class="tricolrow">
+ 		<td><b>{{d1_date}}</b></td>
+ 		<td class="period_cell {{d1_aL_bg}}">{{d1_aL}}</td>
+ 	</tr>
+ 	
+ 	<tr class="tricolrow">
+ 		<td><b>{{d2_date}}</b></td>
+ 		<td class="period_cell {{d2_aL_bg}}">{{d2_aL}}</td>
+ 	</tr>
+ 	
+ 	<tr class="tricolrow">
+ 		<td><b>{{d3_date}}</b></td>
+ 		<td class="period_cell {{d3_aL_bg}}">{{d3_aL}}</td>
+ 	</tr>
+ 	
+ 	<tr class="tricolrow">
+ 		<td><b>{{d4_date}}</b></td>
+ 		<td class="period_cell {{d4_aL_bg}}">{{d4_aL}}</td>
+ 	</tr>
+ 	
+ 	<tr class="tricolrow">
+ 		<td><b>{{d5_date}}</b></td>
+ 		<td class="period_cell {{d5_aL_bg}}">{{d5_aL}}</td>
+ 	</tr>
+ 		
+ 	</table>
+ 
+ 	<p>
+ 	<strong>Attendance Codes Key:</strong><br />
+ 	Blank means present <br />
+ 	{{codes_used}}
+ 	</p>
+ 	
+ 	
+ 	<p>
+ 		{{contact_school_text}}
+ 	</p>
+ 	
+ 	<p>
+ 	Login to the <a href="https://aeries.slusd.us/Parent/LoginParent.aspx" target="_blank">Aeries Parent Portal</a> for more information
+ 	</p>
+ 	
+ 	<p>
+ 	Do you want to adjust your message frequency, language or resubscribe? <a href="{{mailset_link}}" target="_blank">Click here </a><br />
+ 	<br />
+ 	Do you want to stop receiving e-mails? <a href="{{unsub_link}}" target="_blank">Click here to one-click unsubscribe </a><br />
+ 	</p>
+ 	
+ 	
+ 	</div>
+ 	
+ 	
+ 
+ </div><!-- /page -->
+ 
+ </body>
+ </html>
